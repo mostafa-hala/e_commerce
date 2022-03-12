@@ -51,7 +51,7 @@
                     @endforeach
                 </div>
                 
-                <a href="#" class="btn show-more">show more</a>
+                <a href="#" class="btn btn-primary">show more</a>
         </div>
     </section>
 

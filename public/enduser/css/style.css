@@ -206,3 +206,7 @@ color: white;
     background-color: var(--main-color);
     color: var(--white);
 }
+.btn-primary{
+    margin-top: 25px;
+    margin-left: 50%;
+}
