@@ -12,9 +12,18 @@
         rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&family=Pacifico&family=Yesteryear&display=swap"
+        rel="stylesheet">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{URL::asset('enduser/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{URL::asset('enduser/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{URL::asset('enduser/css/bootstrap.rtl.min.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('enduser/css/style.css') }}">
 
     <title>Hello, world!</title>
@@ -54,7 +63,7 @@
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                       document.getElementById('logout-form').submit();">
+                                                           document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 
@@ -83,7 +92,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i> My Carft</a>
+                            <a class="nav-link" href="#"><i class="fas fa-cart-arrow-down"></i> My Carft</a>
                         </li>
 
                         <li class="nav-item">
@@ -146,16 +155,10 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="secound-slider">
-            <img src="enduser/images/about-img1.jpg" alt="">
-            <img src="enduser/images/about-img2.jpg" alt="" class="secound-slider2">
-        </div>
-    </div>
-    <div class="container">
-        <div class="third-slider">
-
-            <div class="third-slider1">
+    <section class="slider">
+        <div class="container">
+            <div class="left-slider">
+                <img src="enduser/images/about-img1.jpg" alt="">
                 <h2>HOT COLLECTION</h2>
                 <h1>NEW TRENDIG FOR WOMAN</h1>
                 <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rerum assumenda voluptatem voluptates
@@ -163,20 +166,18 @@
                     quas quidem magnam!</P>
                 <button type="button" class="btn btn-secondary btn-lg show">Show Now</button>
             </div>
+            <div class="right-slider">
+                <img src="enduser/images/about-img2.jpg" alt="" class="right1">
+                <img src="enduser/images/about-img3.jpg" alt="" class="right2">
 
-            <div>
-                <img src="enduser/images/about-img3.jpg" alt="" class="third-slider2">
             </div>
-
-
-
-
-
         </div>
-    </div>
+
+    </section>
     
 
-@yield('content')
+
+    @yield('content')
 
 
 

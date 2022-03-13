@@ -27,7 +27,7 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::get('/', [productController::class ,'showhomeUser']);
+Route::get('/', [productController::class ,'showhomeUser'])->name('showhomeUser');
 
 Auth::routes();
  Route::get('/home', [HomeController::class, 'index'])->name('home');
