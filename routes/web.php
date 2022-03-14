@@ -8,10 +8,15 @@ use App\Http\Controllers\HomeController;
 use Laravel\Socialite\Facades\Socialite;
 
 use App\Http\Controllers\productController;
+
+use App\Http\Controllers\ADMIN\CartController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ADMIN\GitHubController;
+
+
 use App\Http\Controllers\ADMIN\DashboardController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Http\Controllers\ADMIN\ProductController as ADMINProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +36,13 @@ Route::get('/', [productController::class ,'showhomeUser'])->name('showhomeUser'
 
 Auth::routes();
  Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+ 
+ Route::post('/add-to-cart/{product}', [CartController::class, 'addToCart'])->name('addToCart');
+ Route::delete('/carts/{cart}/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+
+ route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
 // Route::get('/email/verify', function () {
 //     return view('auth.verify-email');
 // })->middleware('auth')->name('verification.notice');

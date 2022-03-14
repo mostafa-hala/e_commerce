@@ -1,5 +1,33 @@
 @extends('layouts.app')
 @section('content')
+    <div class="banner">
+        <div class="banner-container">
+            <div class="banner-script">
+                <h1>Something Is Better</h1>
+                <h3>Fashion Lorem</h3>
+
+            </div>
+        </div>
+    </div>
+    <section class="slider">
+        <div class="container">
+            <div class="left-slider">
+                <img src="enduser/images/about-img1.jpg" alt="">
+                <h2>HOT COLLECTION</h2>
+                <h1>NEW TRENDIG FOR WOMAN</h1>
+                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rerum assumenda voluptatem voluptates
+                    fugit nulla harum, quidem nesciunt voluptatum suscipit. Delectus eum ratione quo rem doloremque non
+                    quas quidem magnam!</P>
+                <button type="button" class="btn btn-secondary btn-lg show">Show Now</button>
+            </div>
+            <div class="right-slider">
+                <img src="enduser/images/about-img2.jpg" alt="" class="right1">
+                <img src="enduser/images/about-img3.jpg" alt="" class="right2">
+
+            </div>
+        </div>
+
+    </section>
     <section class="blog">
         <div class="container">
             <div class="blog-caption">
@@ -19,8 +47,13 @@
                         <div class="blog-image-box-text">
                             <h3>{{ $prod->name }}</h3>
                             <p>{{ $prod->desc }}</p>
-                            <h3>Cart <i class="fas fa-cart-arrow-down"></i></h3>
-                            
+                            <form method="POST" action="{{ route('addToCart', ['product' => $prod->id]) }}">
+                                @csrf
+                                
+                                <button type="submit" title="add to cart"> <i class="fas fa-cart-arrow-down fa-2x"></i></button>
+
+                            </form>
+
 
                         </div>
                     </div>
@@ -31,15 +64,15 @@
     </section>
     <section>
         {{-- <div class="container"> --}}
-            <div class="adv">
-                <div class="left">
-                    <img src="enduser/images/offer-left.jpg" alt="">
+        <div class="adv">
+            <div class="left">
+                <img src="enduser/images/offer-left.jpg" alt="">
 
-                </div>
-                <div class="right">
-                    <img src="enduser/images/offer-right.jpg" alt="">
-                </div>
             </div>
+            <div class="right">
+                <img src="enduser/images/offer-right.jpg" alt="">
+            </div>
+        </div>
 
 
         {{-- </div> --}}
@@ -64,7 +97,10 @@
                         <div class="blog-image-box-text">
                             <h3>{{ $prod->name }}</h3>
                             <p>{{ $prod->desc }}</p>
-                            <h3>Cart <i class="fas fa-cart-arrow-down"></i></h3>
+
+                            <a title="add to cart"> <i class="fas fa-cart-arrow-down fa-2x"></i></a>
+
+
 
                         </div>
                     </div>
@@ -257,13 +293,13 @@
                         Sign Up For New Letter
                     </h3>
                     <textarea class="form-control" placeholder="Type Your Email" id="floatingTextarea"></textarea>
-                    
+
                     <div class="final-icons">
                         <i class="fab fa-facebook-f"></i>
                         <i class="fab fa-twitter"></i>
                         <i class="fab fa-youtube"></i>
                         <i class="fab fa-google"></i>
-                        
+
                     </div>
                 </div>
 

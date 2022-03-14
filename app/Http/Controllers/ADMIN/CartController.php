@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers\ADMIN;
 
-use App\Models\Role;
-use App\Models\User;
+use id;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use App\Http\Requests\StoreUserRequest;
+use App\Models\Cart;
+use App\Models\Prod;
 
-class UserController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-   
     public function index()
     {
         //
-        $users = User::all();
-        return view("admin.users.all", compact('users'));
+        $cart_prod = Cart::where('user_id', '=', auth()->id())->with('prod')->get();
+
+         return view("cart", [
+             'carts' => $cart_prod,
+         ]);
     }
 
     /**
@@ -32,8 +33,6 @@ class UserController extends Controller
     public function create()
     {
         //
-        $roles = Role::all();
-        return view("admin.users.create" , compact('roles'));
     }
 
     /**
@@ -42,22 +41,20 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
         //
-        User::create([
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'password'=> hash::make($request->password),
-            'role_id'=>$request->role_id,
-            
-            
-            // 'title'=>$request->title,
-            // 'content'=>$request->content
+        
+    }
 
-
+    public function addToCart(Prod $product)
+    {
+        Cart::create([
+            'user_id' => auth()->id(),
+            'prod_id' => $product->id,
         ]);
-        return redirect()->back();
+
+        return redirect()->route('cart.index');
     }
 
     /**
@@ -69,8 +66,7 @@ class UserController extends Controller
     public function show($id)
     {
         //
-        $user = User::findOrFail($id);
-        return view('admin.users.show',compact('user'));
+
     }
 
     /**
@@ -82,8 +78,6 @@ class UserController extends Controller
     public function edit($id)
     {
         //
-        $user = User::findOrFail($id);
-        return view('admin.users.edit',compact('user'));
     }
 
     /**
@@ -96,15 +90,6 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $user = User::findOrFail($id);
-        $user->update([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'password'=> hash::make($request->password
-            
-            )
-        ]);
-        return redirect('/admin/users');
     }
 
     /**
@@ -113,12 +98,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cart $cart)
     {
-        //
-        $user = User::findOrFail($id);
-        $user->delete();
+        
+        $cart->delete();
         return redirect()->back();
     }
-   
 }

@@ -77,6 +77,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Wishlist</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('search')}}">Search</a>
+                        </li>
+                        <li class="nav-item">
+                            {{-- <a class="nav-link" href="{{route('show')}}">Profile</a> --}}
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,7 +98,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fas fa-cart-arrow-down"></i> My Carft</a>
+                            <a class="nav-link" href="{{route('cart.index')}}"><i class="fas fa-cart-arrow-down"></i> My Carft</a>
                         </li>
 
                         <li class="nav-item">
@@ -123,7 +129,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="{{route('showhomeUser')}}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Woman</a>
@@ -146,34 +152,7 @@
             </div>
         </nav>
     </div>
-    <div class="banner">
-        <div class="banner-container">
-            <div class="banner-script">
-                <h1>Something Is Better</h1>
-                <h3>Fashion Lorem</h3>
-
-            </div>
-        </div>
-    </div>
-    <section class="slider">
-        <div class="container">
-            <div class="left-slider">
-                <img src="enduser/images/about-img1.jpg" alt="">
-                <h2>HOT COLLECTION</h2>
-                <h1>NEW TRENDIG FOR WOMAN</h1>
-                <P>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam rerum assumenda voluptatem voluptates
-                    fugit nulla harum, quidem nesciunt voluptatum suscipit. Delectus eum ratione quo rem doloremque non
-                    quas quidem magnam!</P>
-                <button type="button" class="btn btn-secondary btn-lg show">Show Now</button>
-            </div>
-            <div class="right-slider">
-                <img src="enduser/images/about-img2.jpg" alt="" class="right1">
-                <img src="enduser/images/about-img3.jpg" alt="" class="right2">
-
-            </div>
-        </div>
-
-    </section>
+    
     
 
 

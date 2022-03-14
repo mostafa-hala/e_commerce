@@ -329,16 +329,16 @@
     -o-border-radius: 5px;
 }
 
-.Blog .Blog-image .Blog-image-box .Blog-image-box-text h3 {
+.Blog .Blog-image .Blog-image-box .Blog-image-box-text a {
     color: #465675;
     margin: 20px 0;
     cursor: pointer;
-    text-align: center;
+    align-items: center;
     font-size: 19px;
     font-weight: 700;
 }
 
-.Blog .Blog-image .Blog-image-box .Blog-image-box-text h3:hover {
+.Blog .Blog-image .Blog-image-box .Blog-image-box-text a:hover {
     color: #2a81ea;
 }
 

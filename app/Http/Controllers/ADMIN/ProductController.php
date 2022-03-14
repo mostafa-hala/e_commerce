@@ -18,8 +18,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $prods= Prod::all();
-        return view("admin.prods.all" , compact("prods"));
+        $prods = Prod::all();
+        return view("admin.prods.all", compact("prods"));
     }
 
     /**
@@ -31,7 +31,7 @@ class ProductController extends Controller
     {
         //
         $cates = Cate::all();
-        return view("admin.prods.create" , compact('cates'));
+        return view("admin.prods.create", compact('cates'));
     }
 
     /**
@@ -44,17 +44,17 @@ class ProductController extends Controller
     {
         //
         $Image = $request->file('image');
-        $PostImage= time(). "_" . $Image->getClientOriginalName();
-        $Image->move('img' ,$PostImage);
+        $PostImage = time() . "_" . $Image->getClientOriginalName();
+        $Image->move('img', $PostImage);
         Prod::create([
-            'name'=> $request->name,
-            'price'=> $request->price,
-            'desc'=> $request->desc,
-            'cate_id'=>$request->cate_id,
-            'image'=>$PostImage,
-            
-            
-            
+            'name' => $request->name,
+            'price' => $request->price,
+            'desc' => $request->desc,
+            'cate_id' => $request->cate_id,
+            'image' => $PostImage,
+
+
+
             // 'title'=>$request->title,
             // 'content'=>$request->content
 
@@ -73,7 +73,7 @@ class ProductController extends Controller
     {
         //
         $prod = Prod::findOrFail($id);
-        return view('admin.prods.show',compact('prod'));
+        return view('admin.prods.show', compact('prod'));
     }
 
     /**
@@ -86,7 +86,7 @@ class ProductController extends Controller
     {
         //
         $prod = Prod::findOrFail($id);
-        return view('admin.prods.edit',compact('prod'));
+        return view('admin.prods.edit', compact('prod'));
     }
 
     /**
@@ -101,10 +101,10 @@ class ProductController extends Controller
         //
         $prod = Prod::findOrFail($id);
         $prod->update([
-            'name'=>$request->name,
-            'desc'=>$request->desc,
-            'price'=> $request->price,
-            
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'price' => $request->price,
+
         ]);
         return redirect('/admin/prods');
     }
@@ -122,4 +122,28 @@ class ProductController extends Controller
         $prod->delete();
         return redirect()->back();
     }
+    public function search(Request $request){
+        // Get the search value from the request
+        $search = $request->input('search');
+    
+        // Search in the title and body columns from the posts table
+        $posts = Prod::query()
+            ->where('name', 'LIKE', "%{$search}%")
+            ->get();
+    
+        // Return the search view with the resluts compacted
+        return view('search', compact('posts'));
+    }
+
+    // public function search()
+    // {
+    //     return view('search');
+    // }
+    // public function autocomplete(Request $request)
+    // {
+    //     $dates = Prod::select("name")
+    //         ->where("%($request->terms)%", "LIKE", "name")
+    //         ->get();
+    //     return response()->json($dates);
+    // }
 }
