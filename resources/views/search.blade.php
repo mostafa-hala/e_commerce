@@ -11,13 +11,40 @@
                             <button type="submit">Search</button>
                         </form>
                         @if ($posts->isNotEmpty())
-                            @foreach ($posts as $post)
-                                <div class="post-list" style="text-align: center">
-                                    <h3>{{ $post->name }}</h3>
-                                    <img src="{{ URL::asset('img/') }}/{{ $post->image }} ">
-                                    <h3>{{ $post->price }}</h3>
+                        <section class="blog">
+                            <div class="container">
+                                <div class="blog-caption">
+                                    <h2>Featured Items</h2>
                                 </div>
-                            @endforeach
+                    
+                                <div class="blog-image">
+                                    @foreach ($posts as $post)
+                                        <div class="blog-image-box">
+                                            <div style="position: relative;" class="blog-image-box-img">
+                                                <div class="price-box">
+                                                    {{ $post->price }}
+                                                </div>
+                    
+                                                <img src="{{ URL::asset('img/') }}/{{ $post->image }}" alt="">
+                                            </div>
+                                            <div class="blog-image-box-text">
+                                                <h3>{{ $post->name }}</h3>
+                                                <p>{{ $post->desc }}</p>
+                                                <form method="POST" action="{{ route('addToCart', ['product' => $post->id]) }}">
+                                                    @csrf
+                                                    
+                                                    <button type="submit" title="add to cart"> <i class="fas fa-cart-arrow-down fa-2x"></i></button>
+                    
+                                                </form>
+                    
+                    
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                    
+                            </div>
+                        </section>
                         @else
                             <div>
                                 <h2>No posts found</h2>

@@ -81,7 +81,7 @@
                             <a class="nav-link" href="{{route('search')}}">Search</a>
                         </li>
                         <li class="nav-item">
-                            {{-- <a class="nav-link" href="{{route('show')}}">Profile</a> --}}
+                            <a class="nav-link" href="{{route('show')}}">Profile</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
@@ -109,15 +109,7 @@
                 </div>
             </div>
         </nav>
-        <nav class="navbar" style="background-color: beige">
-            <div class="container">
-                <form class="d-flex search">
-                    <input class="form-control me-2" type="search" placeholder="Search what you need"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </nav>
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
 

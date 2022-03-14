@@ -98,7 +98,12 @@
                             <h3>{{ $prod->name }}</h3>
                             <p>{{ $prod->desc }}</p>
 
-                            <a title="add to cart"> <i class="fas fa-cart-arrow-down fa-2x"></i></a>
+                            <form method="POST" action="{{ route('addToCart', ['product' => $prod->id]) }}">
+                                @csrf
+                                
+                                <button type="submit" title="add to cart"> <i class="fas fa-cart-arrow-down fa-2x"></i></button>
+
+                            </form>
 
 
 

@@ -22,4 +22,5 @@ Route::middleware(['auth','isAdmin'])->prefix('admin')->group(function(){
 
 });
 Route::get('/search',[ProductController::class , 'search'])->name('search');
-Route::get('/show/{id}',[UserprofileController::class , 'show'])->name('show');
+Route::get('/show',[UserprofileController::class , 'show'])->name('show');
+Route::post('/save-profile',[UserprofileController::class , 'save'])->name('saveProfile');

@@ -15,7 +15,7 @@ class AddProdToCartTable extends Migration
     {
         Schema::table('carts', function (Blueprint $table) {
             //
-            $table->integer('prod_id');
+           
         });
     }
 

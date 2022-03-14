@@ -1,7 +1,9 @@
-@extends('layout.admin')
+@extends('layouts.app')
 @section('content')
     <div class="container">
-        <h1 class="text-center">All Product</h1>
+        <h1 class="text-center" style="font-family: 'Mea Culpa', cursive;
+        font-family: 'Pacifico', cursive;
+        font-family: 'Yesteryear', cursive;">Your Cart</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -43,6 +45,5 @@
             
         </table>
              
-        <a href="{{route('prods.create')}}" class="btn btn-primary">ADD PRODUCT</a>
     </div>
 @endsection
