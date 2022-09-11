@@ -7,7 +7,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Categroy Name</th>
-                    <th scope="col">Describtion</th> 
+                    <th scope="col">summury</th> 
                     <th scope="col">Image</th> 
                     <th scope="col">Created-At</th>
                     <th scope="col">Control</th>
